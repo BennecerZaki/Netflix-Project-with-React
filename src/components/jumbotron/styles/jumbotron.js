@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 
-export const Inner = styled.p`
+export const Inner = styled.div`
   display: flex;
   align-items: center;
   flex-direction: ${({ direction }) => direction};
@@ -59,4 +59,7 @@ export const SubTitle = styled.h3`
   }
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  max-width: 100%;
+  height: auto;
+`;
