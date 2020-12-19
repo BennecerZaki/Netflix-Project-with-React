@@ -10,6 +10,12 @@ export const Container = styled.div`
   @media (max-width: 1000px) {
     padding: 70px 30px;
   }
+  @media (max-width: 475px) {
+    align-items: center;
+    & * {
+      text-align: center;
+    }
+  }
 `;
 export const Row = styled.div`
   display: grid;
