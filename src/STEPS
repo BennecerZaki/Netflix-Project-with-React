@@ -1,0 +1,184 @@
+Rana Lahgin La Création Des Routes : Derna Folder ismou Routes Ou 7atina Fih Routes Ta3na Constants *-* 
+
+Ra7 Ndirou Auth Listner Bach NCheckiw ida Kayen User Nediw L Browse Sinon YouG3oud F Home
+
+Crééyina page Home Ou 7atina Fiha KouLshé 
+
+{ 
+  import React from "react";
+
+import { FaqsContainer, FooterContainer, JumbotronContainer } from "../containers";
+
+const Home = () => (
+  <div>
+    <JumbotronContainer />
+    <FaqsContainer />
+    <FooterContainer />
+  </div>
+);
+
+export default Home;
+
+}
+
+créyina index les pages win n7ato fih koulshé  
+export { default as Home } from "./home";
+export { default as Browse } from "./browse";
+export { default as SignIn } from "./signin";
+export { default as SignUp } from "./signup";
+
+ou créyina les pages kamel 
+
+home.js browse.js etc ... btemplate wa7da fiha Helllo From The page Flenn
+
+Ki Ndirou Switch Ykoun Ou EXCLUSIVE Mais Ki Mandiroush Yfout 3Lihom Kamel Ou Ytesté ^^
+
+Doka Nebda Nakhdmou 3La Header, Nebdaw B  Header.js / index /  Container 
+
+header {
+import { Link as ReactRouterLink } from "react-router-dom";
+import styled from "styled-components/macro";
+
+export const Background = styled.div``;
+
+export const Container = styled.div``;
+
+export const Frame = styled.div``;
+
+export const Logo = styled.img``;
+
+export const ButtonLink = styled(ReactRouterLink)``;
+
+
+}
+
+index {
+
+import React from "react";
+import { Link as ReactRouterLink } from "react-router-dom";
+import { Background, ButtonLink, Container, Logo } from "./styles/header";
+
+export default function Header({ bg = true, children, ...restProps }) {
+  return bg ? <Background {...restProps}>{children}</Background> : children;
+}
+
+Header.Frame = function HeaderFrame({ children, ...restProps }) {
+  return <Container {...restProps}>{children}</Container>;
+};
+
+Header.ButtonLink = function HeaderButtonLink({ children, ...restProps }) {
+  return <ButtonLink {...restProps}>{children}</ButtonLink>;
+};
+
+Header.Logo = function HeaderLogo({ children, ...restProps }) {
+  return (
+    <ReactRouterLink>
+      <Logo {...restProps} />
+    </ReactRouterLink>
+  );
+};
+
+}
+
+container {
+import React from "react";
+import { Header } from "../components";
+import * as ROUTES from "../constants/routes";
+
+const HeaderContainer = ({ children }) => (
+  <div>
+    <Header>
+      <Header.Frame>
+        <Header.Logo to={ROUTES.HOME} alt="Netflix" />
+        <Header.ButtonLink to={ROUTES.SIGNIN}>Sign In</Header.ButtonLink>
+      </Header.Frame>
+      {children}
+    </Header>
+  </div>
+);
+
+export default HeaderContainer;
+
+}
+
+Nzidou Header M3a Home Page
+
+Wraha Nebdaw Nstyliw Header {
+import { Link as ReactRouterLink } from "react-router-dom";
+import styled from "styled-components/macro";
+
+export const Background = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)),
+    url(${({ src }) => (src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg")}) top left / cover no-repeat;
+
+  @media (max-width: 1100px) {
+    ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  margin: 0 56px;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    display: flex;
+  }
+
+  @media (max-width: 1000px) {
+    margin: 0 30px;
+  }
+`;
+
+export const Link = styled.p`
+  color: #fff;
+  text-decoration: none;
+  margin-right: 30px;
+  font-weight: ${({ active }) => (active === "true" ? "700" : "normal")};
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+`;
+
+export const Frame = styled.div``;
+
+export const Logo = styled.img`
+  height: 36px;
+  width: 134px;
+  margin-right: 40px;
+
+  @media (min-width: 1449px) {
+    height: 45px;
+    width: 167px;
+  }
+`;
+
+export const ButtonLink = styled(ReactRouterLink)`
+  display: block;
+  background-color: #e50914;
+  height: fit-content;
+  color: white;
+  border: 0;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 8px 17px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background: #f40612;
+  }
+`;
+
+
+}
